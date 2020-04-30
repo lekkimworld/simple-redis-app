@@ -10,7 +10,7 @@ const client = (function() {
             'url': process.env.REDIS_URL || "redis://localhost:6379"
         });
     } else if (process.env.REDIS_HOSTNAME && process.env.REDIS_PORT && process.env.REDIS_PASSWORD) {
-        redis.createClient(process.env.REDIS_PORT, process.env.REDIS_HOSTNAME, {
+        return redis.createClient(process.env.REDIS_PORT, process.env.REDIS_HOSTNAME, {
             "auth_pass": process.env.REDIS_PASSWORD,
             "tls": {
                 "servername": process.env.REDIS_HOSTNAME
